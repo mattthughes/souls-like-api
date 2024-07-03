@@ -38,3 +38,4 @@ This model uses its id as the primary key to allow users to edit and delete ther
 ### Solved Bugs
 
 * Adjusted profile views was running into errors regarding the post model which I haven't created yet adjusted profile view to generic profile view to remove mention of the post model, the view will be changed at a later date once the post model is created.
+* Fixed CRSF Forbidden error when trying to log into api added CRSF trusted origins to settings.py and added development site name to the new CRSF variable which fixed this issue.

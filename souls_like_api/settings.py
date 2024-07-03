@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-moewcifz#*ad2nfg0r^i-d-55gvn4e-5!#81!m7bk^d#5oulg4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-mattthughes-soulslikeap-k8sio8y84fw.ws-eu115.gitpod.io']
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
+    
 
     'profiles'
 ]
@@ -124,6 +125,9 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+CSRF_TRUSTED_ORIGINS = ['https://8000-mattthughes-soulslikeap-k8sio8y84fw.ws-eu115.gitpod.io', 'https://*.127.0.0.1']
+
 
 
 # Static files (CSS, JavaScript, Images)
