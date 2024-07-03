@@ -7,9 +7,10 @@ class Profile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=255, blank=True)
+    bio = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(
-        upload_to='images/', default='../<ADD Your image name from cloudinary(don’t forget the hash)>', blank=True
+        upload_to='images/', default='../default_profile_bubg9e'
     )
     
     class Meta:
