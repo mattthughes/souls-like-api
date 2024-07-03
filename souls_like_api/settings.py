@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-moewcifz#*ad2nfg0r^i-d-55gvn4e-5!#81!m7bk^d#5oulg4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-mattthughes-soulslikeap-k8sio8y84fw.ws-eu115.gitpod.io']
 
@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'rest_framework',
     
 
-    'profiles'
+    'profiles',
+    'games'
 ]
 
 MIDDLEWARE = [
