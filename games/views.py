@@ -1,6 +1,5 @@
 from rest_framework import generics, permissions
 from .models import Game
-from django.contrib.auth.mixins import PermissionRequiredMixin
 from .serializers import GameSerializer
 from souls_like_api.permissions import IsOwnerOrReadOnly
 

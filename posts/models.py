@@ -11,8 +11,8 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
-    video = models.FileField(
-        upload_to= 'videos', default='../video-place-holder_cdob9m', blank=True
+    file = models.FileField(
+        upload_to= 'files', default='../video-place-holder_cdob9m', blank=True
     )
 
     class Meta:
