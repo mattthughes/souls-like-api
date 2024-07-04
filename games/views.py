@@ -15,9 +15,6 @@ class GameList(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Game.objects.all()
 
-    
-
-    
 
 class GameDetail(generics.RetrieveUpdateDestroyAPIView):
     """
