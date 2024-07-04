@@ -9,8 +9,7 @@ from souls_like_api.permissions import IsOwnerOrReadOnly
 
 class GameList(generics.ListAPIView):
     """
-    List posts or create a post if logged in
-    The perform_create method associates the post with the logged in user.
+    List games view
     """
     serializer_class = GameSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -30,6 +29,14 @@ class GameDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class CreateGame(generics.CreateAPIView):
+    """
+    Create view is using the game serializer
+    and the permission class of is admin
+    checking to see if the user making the request
+    has admin privileges if they do the create view
+    will load otherwise an access denied message will
+    load
+    """
     serializer_class = GameSerializer
     permission_classes = [permissions.IsAdminUser]
 
