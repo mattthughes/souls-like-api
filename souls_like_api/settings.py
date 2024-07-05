@@ -14,8 +14,14 @@ from pathlib import Path
 import os
 if os.path.exists('env.py'):
     import env
+
+
 CLOUDINARY_STORAGE = {
-    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL'),
+    'STATIC_IMAGES_EXTENSIONS': ['jpg', 'jpe', 'jpeg', 'jpc', 'j2k', 'wdp', 'jxr', 'hdp', 'png',
+    'gif', 'webp', 'bmp', 'tif', 'tiff', 'ico' ],
+    'STATIC_VIDEOS_EXTENSIONS': ['mp4', 'webm', 'flv', 'mov', 'ogv', '3gp', '3g2', 'wmv', 'mpeg', 'flv', 'mkv', 'avi'],
+    'MAGIC_FILE_PATH': 'magic',
 }
 
 
