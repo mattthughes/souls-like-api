@@ -11,7 +11,7 @@ class GameList(generics.ListAPIView):
     List games view
     """
     serializer_class = GameSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAdminUser]
     queryset = Game.objects.all()
 
 
