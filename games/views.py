@@ -1,3 +1,4 @@
+from django.db.models import Count
 from rest_framework import generics, permissions
 from .models import Game
 from .serializers import GameSerializer
@@ -12,7 +13,17 @@ class GameList(generics.ListAPIView):
     """
     serializer_class = GameSerializer
     permission_classes = [permissions.IsAdminUser]
-    queryset = Game.objects.all()
+    queryset = Game.objects.annotate(
+        posts_count=Count('owner__post', distinct=True)
+    )
+    filter_backends = [
+        filters.OrderingFilter,
+        DjangoFilterBackend
+    ]
+    ordering_fields = [
+        'posts_count',
+        
+    ]
 
 
 class GameDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -21,8 +32,9 @@ class GameDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     serializer_class = GameSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Game.objects.all()
-
+    queryset = Game.objects.annotate(
+        posts_count=Count('owner__post', distinct=True)
+    )
 
 class CreateGame(generics.CreateAPIView):
     """
