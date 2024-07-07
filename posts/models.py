@@ -1,6 +1,7 @@
 from django.db import models
 from games.models import Game
 from django.contrib.auth.models import User
+from cloudinary_storage.storage import VideoMediaCloudinaryStorage
 
 
 
@@ -13,8 +14,13 @@ class Post(models.Model):
     content = models.TextField(blank=True)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     image = models.ImageField(
-        upload_to= 'image', default='../default_post_iv2gcq', blank=True
+        upload_to= 'image/', default='../default_post_iv2gcq', blank=True
     )
+    video = models.FileField(
+        upload_to='videos/', default='../video-place-holder_cdob9m', blank=True, null=True,
+        storage=VideoMediaCloudinaryStorage()
+    )
+
 
     class Meta:
         ordering = ['-created_at']
