@@ -1,5 +1,6 @@
 from django.db.models import Count
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions,filters
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import Game
 from .serializers import GameSerializer
 from souls_like_api.permissions import IsOwnerOrReadOnly
