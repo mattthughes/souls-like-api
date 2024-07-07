@@ -23,10 +23,10 @@ class PostSerializer(serializers.ModelSerializer):
             )
         return image
     
-    def validate_video(self, video):
-        if video.size > 60 * 1024 * 1024:
+    def validate_video(self, value):
+        if value.size > 60 * 1024 * 1024:
             raise serializers.ValidationError("Video size can not exceed 60mb")
-        return video
+        return value
 
 
     def get_is_owner(self, obj):
@@ -48,6 +48,6 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = [
             'id', 'owner', 'is_owner', 'profile_id', 'profile_image', 'created_at',
-            'updated_at', 'title', 'content', 'game', 'image', 'video', 'like_id'
+            'updated_at', 'title', 'content', 'game', 'image', 'video', 'attachments', 'like_id'
 
         ]

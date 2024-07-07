@@ -20,6 +20,7 @@ class Post(models.Model):
         upload_to='videos/', default='../video-place-holder_cdob9m', blank=True, null=True,
         storage=VideoMediaCloudinaryStorage()
     )
+    attachments = models.URLField(max_length=255, null=True, blank=True)
 
 
     class Meta:
