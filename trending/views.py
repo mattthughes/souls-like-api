@@ -1,14 +1,44 @@
-from rest_framework import generics, permissions
+from django.db.models import Count
+from rest_framework import generics, permissions, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import Trending
 from posts.models import Post
-from .serializers import TrendingSerializer
+from posts.serializers import PostSerializer
 
 # Create your views here.
 
 
 class TrendingList(generics.ListAPIView):
     """
-    Lists Trending posts 
+    Lists Trending posts using the post model
+    to order posts by there like count the order
+    will change depending on the number of likes
+    users can still search by the game title to
+    find posts that are useful to them.
     """
-    serializer_class = TrendingSerializer
-    queryset = Trending.objects.all()
+    serializer_class = PostSerializer
+
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Post.objects.annotate(
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-likes_count')
+    filter_backends = [
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'owner__profile',
+    ]
+    search_fields = [
+        'game__title'
+    ]
+    """
+    This function is limiting the posts of the post model to
+    only show 10 on the page allowing only the top liked posts
+    to appear on the trending page.
+    """
+    def finalize_response(self, request, response, *args, **kwargs):
+        if response.status_code == 200:
+            response.data = response.data[:10]
+            return super().finalize_response(request, response, *args, **kwargs)
