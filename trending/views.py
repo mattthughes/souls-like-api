@@ -1,6 +1,7 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
+from souls_like_api.permissions import IsOwnerOrReadOnly
 from posts.models import Post
 from posts.serializers import PostSerializer
 
@@ -43,3 +44,15 @@ class TrendingList(generics.ListAPIView):
         if response.status_code == 200:
             response.data = response.data[:10]
             return super().finalize_response(request, response, *args, **kwargs)
+    
+
+class TrendingPostDetail(generics.RetrieveAPIView):
+    """
+    Retrieve a trending post.
+    """
+    serializer_class = PostSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+    queryset = Post.objects.annotate(
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-likes_count')
