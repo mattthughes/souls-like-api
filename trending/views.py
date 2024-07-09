@@ -1,7 +1,6 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import Trending
 from posts.models import Post
 from posts.serializers import PostSerializer
 
@@ -33,6 +32,8 @@ class TrendingList(generics.ListAPIView):
     search_fields = [
         'game__title'
     ]
+
+
     """
     This function is limiting the posts of the post model to
     only show 10 on the page allowing only the top liked posts

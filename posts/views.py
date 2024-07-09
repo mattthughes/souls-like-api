@@ -32,12 +32,9 @@ class PostList(generics.ListCreateAPIView):
         'game__title'
     ]
     ordering_fields = [
-        'likes_count',
         'comments_count',
         'likes__created_at',
     ]
-
-        
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
