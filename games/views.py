@@ -32,7 +32,7 @@ class GameDetail(generics.RetrieveUpdateDestroyAPIView):
     Retrieve a Game and edit or delete it if you own it.
     """
     serializer_class = GameSerializer
-    permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [permissions.IsAdminUser]
     queryset = Game.objects.annotate(
         posts_count=Count('owner__post', distinct=True)
     )
