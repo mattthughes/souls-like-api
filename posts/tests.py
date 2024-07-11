@@ -45,6 +45,7 @@ class PostDetailViewTests(APITestCase):
         response = self.client.get('/posts/1/')
         self.assertEqual(response.data['title'], 'a title')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+    
 
 
 
