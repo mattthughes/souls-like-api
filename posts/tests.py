@@ -31,3 +31,21 @@ class PostListViewTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         print(response.data, len(response.data))
 
+
+class PostDetailViewTests(APITestCase):
+    def setUp(self):
+        password = 'pass'
+        my_admin = User.objects.create_superuser('myuser', 'myemail@test.com', password)
+        test_game = Game.objects.create(owner=my_admin, title='a title')
+        matt = User.objects.create_user(username='matt', password='pass')
+        Post.objects.create(owner=matt, title='a title', content='adams content', game=test_game)
+        
+
+    def test_can_retrieve_post_using_valid_id(self):
+        response = self.client.get('/posts/1/')
+        self.assertEqual(response.data['title'], 'a title')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+
+
+
