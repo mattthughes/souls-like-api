@@ -34,8 +34,14 @@ class LikeListViewTests(APITestCase):
         print(response.data, len(response.data))
 
 
+
 class LikeDetailViewTests(APITestCase):
     def setUp(self):
+        """
+        Creating Test environment to set up tests,
+        create test game, and test post assigning
+        the correct users
+        """
         password = 'pass'
         my_admin = User.objects.create_superuser('myuser', 'myemail@test.com', password)
         test_game = Game.objects.create(owner=my_admin, title='a title')
@@ -43,8 +49,12 @@ class LikeDetailViewTests(APITestCase):
         test_post= Post.objects.create(owner=matt, title='a title', content='matts content', game=test_game)
         Like.objects.create(owner=matt, post=test_post)
         
-
-    def test_can_retrieve_like_using_valid_id(self):
+   
+    def test_can_retrieve_like_using_valid_id(self): 
+        """
+        Test to check if the user can retrieve a
+        like by its id
+        """
         response = self.client.get('/likes/1/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 

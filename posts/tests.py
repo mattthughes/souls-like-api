@@ -33,6 +33,11 @@ class PostListViewTests(APITestCase):
 
 
 class PostDetailViewTests(APITestCase):
+    """
+    Set up testing environment creating,
+    test game, test post assigning the
+    correct owners
+    """
     def setUp(self):
         password = 'pass'
         my_admin = User.objects.create_superuser('myuser', 'myemail@test.com', password)
@@ -40,7 +45,11 @@ class PostDetailViewTests(APITestCase):
         matt = User.objects.create_user(username='matt', password='pass')
         Post.objects.create(owner=matt, title='a title', content='adams content', game=test_game)
         
-
+    
+    """
+    Test to check if the user can retrieve a
+    post by its id
+    """
     def test_can_retrieve_post_using_valid_id(self):
         response = self.client.get('/posts/1/')
         self.assertEqual(response.data['title'], 'a title')

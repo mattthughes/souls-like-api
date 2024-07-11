@@ -38,6 +38,11 @@ class CommentListViewTests(APITestCase):
 
 class CommentDetailViewTests(APITestCase):
     def setUp(self):
+        """
+        Set up testing environment creating,
+        test game, test post assigning the
+        correct owners
+        """
         password = 'pass'
         my_admin = User.objects.create_superuser('myuser', 'myemail@test.com', password)
         test_game = Game.objects.create(owner=my_admin, title='a title')
@@ -47,6 +52,11 @@ class CommentDetailViewTests(APITestCase):
         
 
     def test_can_retrieve_comment_using_valid_id(self):
+        """
+        Set up testing environment creating,
+        test game, test post assigning thes
+        correct owners
+        """
         response = self.client.get('/comments/1/')
         self.assertEqual(response.data['content'], 'some content')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
