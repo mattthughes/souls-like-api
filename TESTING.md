@@ -25,13 +25,63 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 
 #### Posts
 
+`Model`
+
+![Post Model](docs/images/post-view-validation.png)
+
+`Serializer`
+
+![Post Serializer](docs/images/post-serializer-validation.png)
+
+`View`
+
+![Post View](docs/images/post-view-validation.png)
+
+`URL`
+
+![Post URL](docs/images/post-urls-validator.png)
+
 #### Games
+
+`Model`
+
+`Serializer`
+
+`View`
+
+`URL`
 
 #### Comments
 
+`Model`
+
+`Serializer`
+
+`View`
+
+`URL`
+
+
+
 #### Likes
 
+`Model`
+
+`Serializer`
+
+`View`
+
+`URL`
+
 #### Trending
+
+`Model`
+
+`Serializer`
+
+`View`
+
+`URL`
 
 
 ### Solved Bugs

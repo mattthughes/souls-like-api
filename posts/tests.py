@@ -4,18 +4,19 @@ from rest_framework.test import APITestCase
 from .models import Post
 from games.models import Game
 
+
 class PostListViewTests(APITestCase):
+
     def setUp(self):
         """
         Set up testing environment
         """
         password = 'pass'
-        my_admin = User.objects.create_superuser('myuser', 'myemail@test.com', password)
+        my_admin = User.objects.create_superuser(
+            'myuser', 'myemail@test.com', password)
         self.client.login(username=my_admin.username, password=password)
         test_user = User.objects.create_user(username='matt', password='pass')
 
-
-    
     def test_can_list_posts(self):
         """
         Test that gets the admin user, which
@@ -40,12 +41,15 @@ class PostDetailViewTests(APITestCase):
     """
     def setUp(self):
         password = 'pass'
-        my_admin = User.objects.create_superuser('myuser', 'myemail@test.com', password)
+        my_admin = User.objects.create_superuser(
+            'myuser', 'myemail@test.com', password)
         test_game = Game.objects.create(owner=my_admin, title='a title')
         matt = User.objects.create_user(username='matt', password='pass')
-        Post.objects.create(owner=matt, title='a title', content='adams content', game=test_game)
-        
-    
+        Post.objects.create(
+            owner=matt, title='a title',
+            content='adams content', game=test_game
+            )
+
     """
     Test to check if the user can retrieve a
     post by its id
@@ -54,8 +58,3 @@ class PostDetailViewTests(APITestCase):
         response = self.client.get('/posts/1/')
         self.assertEqual(response.data['title'], 'a title')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-    
-
-
-
-

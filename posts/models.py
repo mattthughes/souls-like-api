@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from cloudinary_storage.storage import VideoMediaCloudinaryStorage
 
 
-
 class Post(models.Model):
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -14,14 +13,14 @@ class Post(models.Model):
     content = models.TextField(blank=True)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     image = models.ImageField(
-        upload_to= 'image/', default='../default_post_iv2gcq', blank=True
+        upload_to='image/', default='../default_post_iv2gcq', blank=True
     )
     video = models.FileField(
-        upload_to='videos/', default='../video-place-holder_cdob9m', blank=True, null=True,
+        upload_to='videos/', default='../video-place-holder_cdob9m',
+        blank=True, null=True,
         storage=VideoMediaCloudinaryStorage()
     )
     attachments = models.URLField(max_length=255, null=True, blank=True)
-
 
     class Meta:
         ordering = ['-created_at']
