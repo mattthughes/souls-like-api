@@ -46,7 +46,7 @@ class CommentDetailViewTests(APITestCase):
         Comment.objects.create(owner=matt, post=test_post, content='some content')
         
 
-    def test_can_retrieve_post_using_valid_id(self):
+    def test_can_retrieve_comment_using_valid_id(self):
         response = self.client.get('/comments/1/')
         self.assertEqual(response.data['content'], 'some content')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
