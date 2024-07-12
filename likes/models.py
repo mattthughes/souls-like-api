@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from posts.models import Post
+from comments.models import Comment
 
 
 class Like(models.Model):
@@ -8,11 +9,14 @@ class Like(models.Model):
     This model is getting the owner by a foreign key
     to use the user model, and is getting the post's
     id by using another foreign key and using the post
-    model. 
+    model.
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(
         Post, related_name='likes', on_delete=models.CASCADE
+    )
+    comment = models.ForeignKey(
+        Comment, related_name='comment_likes', on_delete=models.CASCADE, blank=True, null=True
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
