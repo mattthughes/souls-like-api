@@ -148,10 +148,16 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 
 #### Aims
 
+* The aim of testing is to make sure all elements work as intended without any server errors
+
+* This will be done by checking if list and detail view, while also checking if users can create read update and delete there data but cannot delete others.
 
 
 ### Testing Steps 
 
+* I will test that each element works by accessing all set up urls to ensure each element works as intended.
+
+* I will make sure only authenticated users can create, read, update and delete there data whereas updating and deleting other users data is hidden and only the owner can access this data.
 
 
 
