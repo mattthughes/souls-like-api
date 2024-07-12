@@ -41,6 +41,10 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 
 ![Post URL](docs/images/post-urls-validator.png)
 
+`Tests`
+
+![Post Tests](docs/images/post-tests-validation.png)
+
 #### Games
 
 `Model`
@@ -59,6 +63,10 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 
 ![Game URL](docs/images/game-urls-validation.png)
 
+`Tests`
+
+![Game Tests](docs/images/game-tests-validation.png)
+
 #### Comments
 
 `Model`
@@ -76,6 +84,10 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 `URL`
 
 ![Comments URL](docs/images/comments-url-validation.png)
+
+`Tests`
+
+![Comments Tests](docs/images/comments-tests-validation.png)
 
 
 
@@ -97,6 +109,10 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 
 ![Like URL](docs/images/like-ulrs-validation.png)
 
+`Tests`
+
+![Like Tests](docs/images/like-tests-validation.png)
+
 #### Trending
 
 `View`
@@ -106,6 +122,10 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 `URL`
 
 ![Trending URL](docs/images/trending-urls-validation.png)
+
+`Tests`
+
+![Trending Tests](docs/images/trending-tests-validation.png)
 
 
 ### Solved Bugs
