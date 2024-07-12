@@ -1,5 +1,5 @@
 from django.db.models import Count
-from rest_framework import generics, permissions,filters
+from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Game
 from .serializers import GameSerializer
@@ -23,7 +23,7 @@ class GameList(generics.ListAPIView):
     ]
     ordering_fields = [
         'posts_count',
-        
+
     ]
 
 
@@ -36,6 +36,7 @@ class GameDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Game.objects.annotate(
         posts_count=Count('owner__post', distinct=True)
     )
+
 
 class CreateGame(generics.CreateAPIView):
     """

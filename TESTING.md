@@ -45,11 +45,19 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 
 `Model`
 
+![Game Model](docs/images/game-model-validation.png)
+
 `Serializer`
+
+![Game Serializer](docs/images/game-serializer-validation.png)
 
 `View`
 
+![Game View](docs/images/game-views-validation.png)
+
 `URL`
+
+![Game URL](docs/images/game-urls-validation.png)
 
 #### Comments
 

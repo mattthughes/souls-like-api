@@ -12,7 +12,8 @@ class GameListAdminViewTests(APITestCase):
         them in
         """
         password = 'pass'
-        my_admin = User.objects.create_superuser('myuser', 'myemail@test.com', password)
+        my_admin = User.objects.create_superuser(
+            'myuser', 'myemail@test.com', password)
         self.client.login(username=my_admin.username, password=password)
 
     def test_can_list_games(self):
@@ -29,7 +30,6 @@ class GameListAdminViewTests(APITestCase):
         print(response.data)
         print(len(response.data))
 
-    
 
 class GameListUserViewTests(APITestCase):
     def setUp(self):
@@ -38,7 +38,6 @@ class GameListUserViewTests(APITestCase):
         creating a test user
         """
         test_user = User.objects.create_user(username='matt', password='pass')
-        
 
     def test_cannot_list_games(self):
         """
@@ -53,7 +52,7 @@ class GameListUserViewTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         print(response.data)
         print(len(response.data))
-    
+
 
 class GameDetailAdminViewTests(APITestCase):
     def setUp(self):
@@ -61,10 +60,12 @@ class GameDetailAdminViewTests(APITestCase):
         Set up testing environment creating the
         admin user and logging them in
         """
-        password='pass'
-        my_admin = User.objects.create_superuser('myuser', 'myemail@test.com', password)
+
+        password = 'pass'
+        my_admin = User.objects.create_superuser(
+            'myuser', 'myemail@test.com', password)
         self.client.login(username=my_admin.username, password=password)
-    
+
     def test_can_retrive_game_using_valid_id(self):
         """
         Test to check if the user can retrieve a
@@ -83,9 +84,9 @@ class GameDetailUserViewTests(APITestCase):
         Setting up testing environment creating
         the test user
         """
-        
+
         test_user = User.objects.create_user(username='matt', password='pass')
-    
+
     def test_cannot_retrive_game_using_valid_id(self):
         """
         Testing that the user cannot access
@@ -97,5 +98,3 @@ class GameDetailUserViewTests(APITestCase):
         Game.objects.create(owner=user, title='a title')
         response = self.client.get('/games/2/')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-        

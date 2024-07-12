@@ -13,10 +13,11 @@ class Game(models.Model):
         DEMONSSOULS = 'DEMONS-SOULS'
         BLOODBORNE = 'BLOOD-BORNE'
         SEKIROSHADOWSDIETWICE = 'SEKIRO-SHADOWS-DIE-TWICE'
-    
+        OTHER = 'OTHER'
+
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=24, choices=GameChoices.choices)
-    
 
     def __str__(self):
         return f" {self.title}"
+
