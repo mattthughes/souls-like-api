@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase
 from posts.models import Post
+from comments.models import Comment
 from games.models import Game
 from .models import Like
 
@@ -31,6 +32,23 @@ class LikeListViewTests(APITestCase):
             content='matts content', game=test_game
             )
         Like.objects.create(owner=matt, post=test_post)
+        response = self.client.get('/likes/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        print(response.data, len(response.data))
+
+        def test_can_like_comments(self):
+            my_admin = User.objects.get(username='myuser')
+        test_game = Game.objects.create(owner=my_admin, title='a title')
+        matt = User.objects.get(username='matt')
+        test_post = Post.objects.create(
+            owner=matt, title='a title',
+            content='matts content', game=test_game
+            )
+        test_comment = Comment.objects.create(
+            owner=matt,
+            content='matts content', post=test_post
+            )
+        Like.objects.create(owner=matt, comment=test_comment)
         response = self.client.get('/likes/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         print(response.data, len(response.data))
