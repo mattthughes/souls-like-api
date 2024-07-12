@@ -37,6 +37,14 @@ class LikeListViewTests(APITestCase):
         print(response.data, len(response.data))
 
         def test_can_like_comments(self):
+            """
+        Test that gets the admin user, which
+        then creates a game, which then allows
+        a user to select the game id, create
+        a post, then create a comment, and
+        assigns the like to the correct post
+        by its id
+        """
             my_admin = User.objects.get(username='myuser')
         test_game = Game.objects.create(owner=my_admin, title='a title')
         matt = User.objects.get(username='matt')

@@ -168,13 +168,33 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 
 `Post Testing`
 
+![Post Testing](docs/images/post-tests-logic.png)
+
 `Game Testing`
+
+![Game Testing Part 1](docs/images/game-test-part-1-logic.png)
+
+![Game Testing Part 2](docs/images/game-test-part-2-logic.png)
 
 `Comment Testing`
 
+![Comment Testing Part 1](docs/images/comment-tests-part-1-logic.png)
+
+![Comment Testing Part 2](docs/images/comment-tests-part-2-logic.png)
+
 `Likes Testing`
+
+![Likes Testing Part 1](docs/images/likes-tests-logic-part-1.png)
+
+![Likes Testing Part 2](docs/images/likes-tests-logic-part-2.png)
 
 `Trending Testing`
 
+![Trending Testing Part 1](docs/images/trending-tests-part-1-logic.png)
+
+![Trending Testing Part 2](docs/images/trending-tests-part-2-logic.png)
+
 
 #### Testing Results
+
+![Automated Testing Results](docs/images/test-results.png)
