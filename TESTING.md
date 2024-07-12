@@ -63,11 +63,19 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 
 `Model`
 
+![Comments Model](docs/images/comments-model-validation.png)
+
 `Serializer`
+
+![Comments Serializer](docs/images/comment-serializer-validation.png)
 
 `View`
 
+![Comments Views](docs/images/comment-view-validation.png)
+
 `URL`
+
+![Comments URL](docs/images/comments-url-validation.png)
 
 
 
