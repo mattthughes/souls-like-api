@@ -83,21 +83,29 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 
 `Model`
 
+![Like Model](docs/images/like-model-validation.png)
+
 `Serializer`
+
+![Lke Serializer](docs/images/like-serializer-validation.png)
 
 `View`
 
+![Like View](docs/images/like-views-validation.png)
+
 `URL`
+
+![Like URL](docs/images/like-ulrs-validation.png)
 
 #### Trending
 
-`Model`
-
-`Serializer`
-
 `View`
 
+![Trending view](docs/images/trending-view-validation.png)
+
 `URL`
+
+![Trending URL](docs/images/trending-urls-validation.png)
 
 
 ### Solved Bugs
