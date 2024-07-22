@@ -12,7 +12,7 @@ class PostSerializer(serializers.ModelSerializer):
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
 
-    def validate_image(self, image):
+    def validate_image(self, value):
         if image.size > 2 * 1024 * 1024:
             raise serializers.ValidationError('Image size larger than 2MB!')
         if image.image.height > 4096:
@@ -23,7 +23,7 @@ class PostSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 'Image width larger than 4096px!'
             )
-        return image
+        return value
 
     def validate_video(self, value):
         if value.size > 60 * 1024 * 1024:
