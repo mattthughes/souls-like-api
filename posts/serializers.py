@@ -25,11 +25,6 @@ class PostSerializer(serializers.ModelSerializer):
             )
         return value
 
-    def validate_video(self, value):
-        if value.size > 60 * 1024 * 1024:
-            raise serializers.ValidationError("Video size can not exceed 60mb")
-        return value
-
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
