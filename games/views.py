@@ -13,7 +13,7 @@ class GameList(generics.ListAPIView):
     List games view
     """
     serializer_class = GameSerializer
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Game.objects.annotate(
         posts_count=Count('owner__post', distinct=True)
     )
