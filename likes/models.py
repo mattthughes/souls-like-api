@@ -15,11 +15,14 @@ class Like(models.Model):
     post = models.ForeignKey(
         Post, related_name='likes', on_delete=models.CASCADE, null=True
     )
+    comment = models.ForeignKey(
+        Comment, related_name='comment_likes', on_delete=models.CASCADE, blank=True, null=True
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['-created_at']
-        unique_together = ['owner', 'post']
+        unique_together = ['owner', 'post', 'comment']
 
     def __str__(self):
         return f'{self.owner} {self.post}'
