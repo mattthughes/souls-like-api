@@ -31,7 +31,6 @@ class GameDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve a Game and edit or delete it if you own it.
     """
-    lookup_field = 'slug'
     serializer_class = GameSerializer
     permission_classes = [permissions.IsAdminUser]
     queryset = Game.objects.annotate(
