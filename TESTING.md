@@ -141,6 +141,7 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 * Fixed Game detail view originally a user that was not signed in could access the game detail game id. This error was found while creating the automated game detail tests, in order to fix this I changed the permissions to is.Admin which allowed only an admin user to access this information fixing this error.
 * Fixed post view tests orginally I was recieving an error stating the game id cannot be null, to fix this I created a game within the test and assigned it to a variable called test game, after this I created the post model and set the game field to the test game fixing this issue.
 * Fixed a comment serializer issue this was trying to access the comment likes field which no longer existed removing this removed the server 500 error
+* Fixed post game issue, orginally the user on the front end was only able to target the id of the game and not the actual content of the game. Which caused issues when creating posts and searching for posts under the games title. Which was not possible. To fix this I added the game field to the post serializer with a serializer slug field, setting the slug field to the title field on the games model. After this I used the games model as the query set resulting in the game title being returned rather than the id fixing this issue.
 
 
 ### Known Bugs
