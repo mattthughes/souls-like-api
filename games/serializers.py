@@ -16,4 +16,4 @@ class GameSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'title', 'slug', 'image', 'description'
         ]
-        extra_kwargs = {'lookup_field': 'slug'}
+        

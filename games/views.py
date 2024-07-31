@@ -12,7 +12,6 @@ class GameList(generics.ListAPIView):
     """
     List games view
     """
-    lookup_field = 'slug'
     serializer_class = GameSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Game.objects.annotate(
