@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
+from games.models import Game
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -42,8 +43,8 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
-            'profile_image', 'created_at',
-            'updated_at', 'title', 'content', 'game',
+            'profile_image', 'created_at', 'game',
+            'updated_at', 'title', 'content',
             'image', 'video', 'attachments', 'like_id',
             'likes_count', 'comments_count'
 

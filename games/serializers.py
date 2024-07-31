@@ -5,6 +5,7 @@ from .models import Game
 class GameSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
+    
 
     def get_is_owner(self, obj):
         request = self.context['request']
@@ -13,5 +14,6 @@ class GameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
         fields = [
-            'id', 'owner', 'is_owner', 'title'
+            'id', 'owner', 'is_owner', 'title', 'slug', 'image', 'description'
         ]
+        extra_kwargs = {'lookup_field': 'slug'}

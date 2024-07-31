@@ -5,18 +5,14 @@ from django.contrib.auth.models import User
 
 
 class Game(models.Model):
-    class GameChoices(models.TextChoices):
-        DARKSOULS1 = 'DARK-SOULS-1'
-        DARKSOULS2 = 'DARK-SOULS-2'
-        DARKSOULS3 = 'DARK-SOULS-3'
-        ELDENRING = 'ELDEN-RING'
-        DEMONSSOULS = 'DEMONS-SOULS'
-        BLOODBORNE = 'BLOOD-BORNE'
-        SEKIROSHADOWSDIETWICE = 'SEKIRO-SHADOWS-DIE-TWICE'
-        OTHER = 'OTHER'
-
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=24, choices=GameChoices.choices)
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, default='default-game')
+    image = models.ImageField(
+        upload_to='image/', default='../default_post_iv2gcq', blank=True
+    )
+    description = models.TextField(blank=True)
+
 
     def __str__(self):
         return f" {self.title}"

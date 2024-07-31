@@ -12,6 +12,7 @@ class GameList(generics.ListAPIView):
     """
     List games view
     """
+    lookup_field = 'slug'
     serializer_class = GameSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Game.objects.annotate(
@@ -31,11 +32,13 @@ class GameDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve a Game and edit or delete it if you own it.
     """
+    lookup_field = 'slug'
     serializer_class = GameSerializer
     permission_classes = [permissions.IsAdminUser]
     queryset = Game.objects.annotate(
         posts_count=Count('owner__post', distinct=True)
     )
+    
 
 
 class CreateGame(generics.CreateAPIView):
