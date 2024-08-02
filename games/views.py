@@ -26,6 +26,8 @@ class GameList(generics.ListAPIView):
 
     ]
 
+    lookup_field = 'slug'
+
 
 class GameDetail(generics.RetrieveUpdateDestroyAPIView):
     """

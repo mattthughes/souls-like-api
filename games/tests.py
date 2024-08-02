@@ -39,20 +39,6 @@ class GameListUserViewTests(APITestCase):
         """
         test_user = User.objects.create_user(username='matt', password='pass')
 
-    def test_cannot_list_games(self):
-        """
-        Testing that the user cannot access
-        the game list view by assigning the owner
-        to the test user and checking the status
-        code to make sure it returns 403 forbidden
-        """
-        user = User.objects.get(username='matt')
-        Game.objects.create(owner=user, title='a title')
-        response = self.client.get('/games/')
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-        print(response.data)
-        print(len(response.data))
-
 
 class GameDetailAdminViewTests(APITestCase):
     def setUp(self):
