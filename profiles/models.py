@@ -12,7 +12,7 @@ class Profile(models.Model):
     image = models.ImageField(
         upload_to='images/', default='../default_profile_bubg9e'
     )
-    files = models.URLField(max_length=255, null=True, blank=True)
+    files = models.URLField(max_length=255, null=True, blank=True, default='')
     
     class Meta:
         ordering = ['-created_at']
