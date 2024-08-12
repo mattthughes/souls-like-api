@@ -34,17 +34,6 @@ class TrendingList(generics.ListAPIView):
         'game__title'
     ]
 
-    """
-    This function is limiting the posts of the post model to
-    only show 10 on the page allowing only the top liked posts
-    to appear on the trending page.
-    """
-    def finalize_response(self, request, response, *args, **kwargs):
-        if response.status_code == 200:
-            response.data = response.data[:10]
-            return super().finalize_response(
-                request, response, *args, **kwargs)
-
 
 class TrendingPostDetail(generics.RetrieveAPIView):
     """
