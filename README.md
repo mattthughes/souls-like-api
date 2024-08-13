@@ -62,13 +62,40 @@ This model uses its id as the primary key to allow users to edit and delete ther
 
 ### Post
 
+Posts can be viewed by users that are unauthenticated and authenticated, if the user is authenticated they are able to Create, read. update and delete there posts, users will be able to search for posts by the users name, post title and the game title.
+
+`/posts/` This is a get request to get the posts in a list view using a create view if the user is authenticated.
+`/posts/:id/` This will be an update and delete view that will allow users that edit there own post and delete there own post.
+
 ### Game
+
+Games can be viewed by users that are unauthenticated and authenticated, if the user is a superuser they are able to create, read update, and delete the games data. This will use defensive design to ensure a standard user cannot create, read, update and delete any games data ensuring only an admin superuser can do this.
+
+`/games/` This is using a get request to show all the games in a list view which standard users can access.
+`/games/create` This is a create view that will allow only the admin user to access this view otherwise return access denied message.
+`/games/:id/` This will be a update and delete view that will allow the admin user to update and delete the game.
+
 
 ### Comment
 
+Comments can be viewed by users that are unauthenticated and authenticated, if the user is authenticated they can create, read,update and delete there own posts. They can read other users posts but they cannot edit and delete other users posts. To make sure users cannot edit and delete other users comments this will be controlled by is owner or read only permissions.
+
+`/comments/` This is using a get request to show all the comments in a list which standard users can view and will also be a create view that allows authenticated users to create a comment.
+`/comments/:id/` This will be an update and delete view that will allow the comment author to update and delete there own comment otherwise this will be read only.
+
 ### Likes
 
+Likes can be viewed by users that are unauthenticated and authenticated, if the user is authenticated they can create delete there own likes.
+
+`/likes/` This is using a get request to show all the likes if the user is authenticated the create form will be visible.
+`likes/:id/` This will be a delete view using a delete request if the user is the author they can remove and delete there like.
+
 ### Trending
+
+Trending can be viewed by users that are unauthenticated and authenticated the user can view the top 10 rated posts by the posts like count.
+
+`/trending/` This is using a get request to show all the trending posts.
+`/trending/:id/` This is using a retreive api view that will allow the user to see the detailed trending post.
 
 ## Testing 
 
