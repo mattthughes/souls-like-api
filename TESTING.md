@@ -1,9 +1,9 @@
-# Testing
+# Souls Like API Testing
 
 Welcome to testing results of The Advanced Frontend Application known as Souls Like Gallery in this document you will find all the testing resuts such as solved bugs, how they were fixed any known bugs, manual and automated testing as well and how they were tested making sure each element worked as intended.
 
 ## CONTENTS
-- [Testing](#testing)
+- [Souls Like API testing](#souls-like-api-testing)
 - [Python Validation](#python-validation)
     - [Posts](#posts)
     - [Games](#games)
