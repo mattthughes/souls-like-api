@@ -149,6 +149,7 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 
 ### Manual Testing
 
+
 #### Aims
 
 * The aim of testing is to make sure all elements work as intended without any server errors
@@ -163,6 +164,11 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 * I will make sure only authenticated users can create, read, update and delete there data whereas updating and deleting other users data is hidden and only the owner can access this data.
 
 
+`Route`
+
+**Element**|**Expected Outcome**|**Testing Performed**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+Route view|Load Welcome message|Launched API|Loaded Welcome message|Pass
 
 
 ### Automated Testing
