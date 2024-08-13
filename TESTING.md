@@ -231,6 +231,13 @@ Cancel button|return comment form|Clicked the cancel button|Returned user to com
 
 `Trending`
 
+**Element**|**Expected Outcome**|**Testing Performed**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+Trending list|Trending list to show as read only|Loaded posts page|Posts shown as read only|Pass
+Trending post filter by user profile|Show posts from specific profile|Filtered by user profile|Showed posts from specific user|Pass
+Trending detail|Load trending post detail by its id and show as read only|Tried to access trending id|Loaded trending detail and was shown as read only|Pass
+
+
 `Likes`
 
 
