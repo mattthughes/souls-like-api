@@ -171,6 +171,32 @@ Welcome to testing results of The Advanced Frontend Application known as Souls L
 Route view|Load Welcome message|Launched API|Loaded Welcome message|Pass
 
 
+`Game`
+
+**Element**|**Expected Outcome**|**Testing Performed**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+Games View|Show games list|Accessed game view|Showed Games list|Pass
+Games create view(superuser)|Load games create form|Tried to access create game view|Loaded create game form|Pass
+Games create view(user)|Show Authentication credentials were not provided message|Tried to access create game view|Showed Authentication credentials were not provided|Pass
+Games create view(not logged in)|Show Authentication credentials were not provided message|Tried to access create game view|Showed Authentication credentials were not provided|Pass
+Games Create view (title empty)|Alert user title may not be blank|Tried to submit form with empty title|Alert informing user title field cannot be blank|Pass
+Game Create view (title duplicate)|Alert user game title already exists|Tried to submit form with duplicate game title|Alert informing user title already exists|Pass
+Game Create view (slug empty)|Alert user slug may not be blank|Tried to submit form with empty slug|Alert informing user slug cannot be blank|Pass
+Game Create view (slug duplicate)|Alert user slug already exists|Tried to submit form with duplicate slug|Alert informing user slug already exists|Pass
+Game Create view (submit correct data)]|Inform user game created via 201 status code and show game detail|Tried to submit form with correct data|Game detail loaded showing 201 status code informing user game created|Pass
+Games edit form(superuser)|Show Game detail and edit form|Tried to access edit game form|Loaded Game detail and edit form|Pass
+Games edit form(user)|Authentication credentials were not provided message|Tried to access edit game form|Show Authentication credentials were not provided message|Pass
+Games edit form(not logged in)|Authentication credentials were not provided message|Tried to access edit game form|Show Authentication credentials were not provided message|Pass
+Games edit form (title blank)|Alert user title may not be blank|Tried to submit form with empty title|Alert informing user title field cannot be blank|Pass
+Games edit form (duplicate title)|Alert user game title already exists|Tried to submit form with a duplicate game title|Alert informing user game title already exists|Pass
+Games edit form (slug blank)|Alert user slug cannot be blank|Tried to submit form with empty slug|Alert informing slug cannot be blank|Pass
+Game edit form (duplicate slug)|Alert user slug already exists|Tried to submit form with a duplicate game|Alert informing user game already exists|Pass
+Game edit form (submit correct data)|Inform user game edited via 200 status code and show game detail|Tried to submit form with correct data|Game detail loaded showing 200 status code informing user game edited|Pass
+Game delete (superuser)|Pop up message stating are you sure you want to delete this game if deletion confirmed return 204 no content status code|Tried to delete game|Pop up message appeared asking if user was sure upon deletion 204 status code returned|Pass
+Game delete (user)|Show Authentication credentials were not provided message for the game detail|Tried to access game detail|Show Authentication credentials were not provided message|Pass
+Cancel button|Return game form|Clicked the cancel button|Returned user to game form|Pass
+
+
 ### Automated Testing
 
 #### Automated Testing Aims
