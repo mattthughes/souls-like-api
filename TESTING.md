@@ -183,7 +183,7 @@ Games Create view (title empty)|Alert user title may not be blank|Tried to submi
 Game Create view (title duplicate)|Alert user game title already exists|Tried to submit form with duplicate game title|Alert informing user title already exists|Pass
 Game Create view (slug empty)|Alert user slug may not be blank|Tried to submit form with empty slug|Alert informing user slug cannot be blank|Pass
 Game Create view (slug duplicate)|Alert user slug already exists|Tried to submit form with duplicate slug|Alert informing user slug already exists|Pass
-Game Create view (submit correct data)]|Inform user game created via 201 status code and show game detail|Tried to submit form with correct data|Game detail loaded showing 201 status code informing user game created|Pass
+Game Create view (submit correct data)|Inform user game created via 201 status code and show game detail|Tried to submit form with correct data|Game detail loaded showing 201 status code informing user game created|Pass
 Games edit form(superuser)|Show Game detail and edit form|Tried to access edit game form|Loaded Game detail and edit form|Pass
 Games edit form(user)|Authentication credentials were not provided message|Tried to access edit game form|Show Authentication credentials were not provided message|Pass
 Games edit form(not logged in)|Authentication credentials were not provided message|Tried to access edit game form|Show Authentication credentials were not provided message|Pass
@@ -213,6 +213,25 @@ Post empty fields with default settings|Post to be edited with default settings 
 Post correct data|Load post detail|Submitted post with correct data|Loaded post detail|Pass
 Post detail (delete post)|Pop up stating are you sure you want to delete this post, if deletion confirmed return 204 no content status code|Tried to delete post|Pop up message appeared asking if user was sure upon deletion 204 status code returned|Pass
 Cancel button|return post form|Clicked the cancel button|Returned user to post form|Pass
+
+`Comments`
+
+**Element**|**Expected Outcome**|**Testing Performed**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+Comment list|Post lists to show as read only|Loaded comments page|Comments shown as read only|Pass
+Comment list(logged in user)|Create form visible|Logged in and loaded comments page|Comment create form visible|Pass
+Comments create form (empty comment)|Alert informing comment cannot be blank|Tried to submit comment with empty comment|Alert informing user comment cannot be blank|Pass
+Comment correct data|Load comment detail|Submitted comment with correct data|Loaded comment detail|Pass
+Comment detail|Load comment detail by its id and show as read only|Tried to access comment id|Loaded comment detail and was shown as read only|Pass
+Comment detail (comment author)|Comment edit form visible along with edit, delete buttons|Tried to access comment id|Comment edit form visible along with edit and delete buttons|Pass
+Comment detail edit comment (empty comment)|Alert informing user commet cannot be blank|Tried to submit comment with empty comment|Alert informing user comment cannot be blank|Pass
+Comment correct data|Load comment detail|Submitted post with correct data|Loaded comment detail|Pass
+Comment detail (delete Comment)|Pop up stating are you sure you want to delete this comment, if deletion confirmed return 204 no content status code|Tried to delete comment|Pop up message appeared asking if user was sure upon deletion 204 status code returned|Pass
+Cancel button|return comment form|Clicked the cancel button|Returned user to comment form|Pass
+
+`Trending`
+
+`Likes`
 
 
 
