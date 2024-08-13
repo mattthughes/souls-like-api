@@ -197,6 +197,25 @@ Game delete (user)|Show Authentication credentials were not provided message for
 Cancel button|Return game form|Clicked the cancel button|Returned user to game form|Pass
 
 
+`Posts`
+
+**Element**|**Expected Outcome**|**Testing Performed**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+Posts list|Post lists to show as read only|Loaded posts page|Posts shown as read only|Pass
+Posts list(logged in user)|Create form visible|Logged in and loaded posts page|Posts create form visible|Pass
+Posts create form (empty title)|Alert informing user post title cannot be blank|Tried to submit post with empty title|Alert informing user post title cannot be blank|Pass
+Post empty fields with default settings|Post to be created with default settings for image,content.video.attachments|Submitted post with title, empty image,content,video,attachments|Loaded post detail with title, default fields|Pass
+Post correct data|Load post detail|Submitted post with correct data|Loaded post detail|Pass
+Post detail|Load post detail by its id and show as read only|Tried to access post id|Loaded post detail and was shown as read only|Pass
+Post detail (post author)|Post edit form visible along with edit, delete buttons|Tried to access post id|Post edit form visible along with edit and delete buttons|Pass
+Post detail edit post (empty title)|Alert informing user post title cannot be blank|Tried to submit post with empty title|Alert informing user post title cannot be blank|Pass
+Post empty fields with default settings|Post to be edited with default settings for image,content.video.attachments|Submitted post with title, empty image,content,video,attachments|Loaded post detail with title, default fields|Pass
+Post correct data|Load post detail|Submitted post with correct data|Loaded post detail|Pass
+Post detail (delete post)|Pop up stating are you sure you want to delete this post, if deletion confirmed return 204 no content status code|Tried to delete post|Pop up message appeared asking if user was sure upon deletion 204 status code returned|Pass
+Cancel button|return post form|Clicked the cancel button|Returned user to post form|Pass
+
+
+
 ### Automated Testing
 
 #### Automated Testing Aims
