@@ -240,6 +240,16 @@ Trending detail|Load trending post detail by its id and show as read only|Tried 
 
 `Likes`
 
+**Element**|**Expected Outcome**|**Testing Performed**|**Result**|**Pass/Fail**
+:-----:|:-----:|:-----:|:-----:|:-----:
+Like list|Show like list as read only|Loaded like list|Like list shown as read only|Pass
+Like list(user)|Show like list and create form|Loaded like list|Showed like list and create form|Pass
+Like list(post selected)|Like detail to return with 201 status code|Submitted like form |Showed like detail and status 201 code|Pass
+Like detail (not logged in)|Show like detail as read only|Loaded like detail|Like detail shown as read only|Pass
+Like detail (user)|Show like detail and delete button|Loaded like detail|Showed like detail and delete button|Pass
+Like detail delete button|Pop up message asking if the user would like to delete like detail|Clicked delete button and deleted post|Pop up message asking the user if they would like to delete like detail appeared upon deletion 204 no content status code appeared|Pass
+Cancel button|Return like detail|Clicked cancel button|Returned like detail|Pass
+
 
 
 ### Automated Testing
@@ -258,9 +268,11 @@ Trending detail|Load trending post detail by its id and show as read only|Tried 
 
 `Game Testing`
 
-![Game Testing Part 1](docs/images/game-test-part-1-logic.png)
+![Game Testing Part 1](docs/images/game-tests-part-1-logic.png)
 
-![Game Testing Part 2](docs/images/game-test-part-2-logic.png)
+![Game Testing Part 2](docs/images/game-tests-part-2-logic.png)
+
+![Game Testing Part 3](docs/images/game-tests-part-3-logic.png)
 
 `Comment Testing`
 
