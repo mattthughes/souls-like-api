@@ -24,7 +24,7 @@ Souls like gallery is a content sharing application that is built using the djan
     - [Heroku Deployment](#heroku-deployment)
     - [Fork project](#fork-project)
     - [Running application locally](#running-application-locally)
-- [Packages](#packages)
+- [Technologies](#technologies)
 - [Credits](#credits)
 - [Acknowledgements](#acknowledgements)
 
@@ -125,6 +125,7 @@ Navigated to the GitHub Repository:
 * Python
 
 * The following python modules and libraries were used for this application
+
     * asgiref==3.8.1
     * cloudinary==1.26.0
     * cryptography==3.4.8
@@ -149,10 +150,9 @@ Navigated to the GitHub Repository:
     * sqlparse==0.4.1
     * urllib3==1.26.18
 
-
-
-
 ## Credits
+
+Backend api inspired by the DRF API walkthrough project which was customised to my projects needs found [here](https://github.com/Code-Institute-Solutions/drf-api)
 
 ## Acknowledgements
 
