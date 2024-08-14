@@ -107,9 +107,50 @@ I tested this project extensively, making sure everything worked as intended thi
 
 ### Running Application locally
 
+Navigated to the GitHub Repository:
+
+1. Click on the code drop down and click on HTTPS
+2. Copy the Repository link to the clipboard
+3. Open your IDE such as GitPod, CodeAnywhere or any of your choosing making sure git is also installed
+4. Type git clone alongside the repository link you have just copied into the IDE terminal, the project will now be cloned for use.
+
 ### Fork Project
 
-## Packages
+1. Log in or sign u to GitHub.
+2. Go to the repository for this project [mattthughes/souls-like-gallery-api](https://github.com/mattthughes/souls-like-api)
+3. Click the Fork button on the right corner to fork the project.
+
+## Technologies
+
+* Python
+
+* The following python modules and libraries were used for this application
+    * asgiref==3.8.1
+    * cloudinary==1.26.0
+    * cryptography==3.4.8
+    * dj-database-url==0.5.0
+    * dj-rest-auth==2.1.9
+    * dj3-cloudinary-storage==0.0.6
+    * Django==4.2
+    * django-allauth==0.54.0
+    * django-cloudinary-storage==0.3.0
+    * django-cors-headers==3.7.0
+    * django-filter==2.4.0
+    * djangorestframework==3.14.0
+    * djangorestframework-simplejwt==4.7.2
+    * gunicorn==20.1.0
+    * oauthlib==3.1.1
+    * Pillow==8.2.0
+    * psycopg2==2.9.9
+    * PyJWT==2.1.0
+    * python3-openid==3.2.0
+    * pytz==2021.1
+    * requests-oauthlib==1.3.0
+    * sqlparse==0.4.1
+    * urllib3==1.26.18
+
+
+
 
 ## Credits
 
