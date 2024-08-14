@@ -156,4 +156,5 @@ Backend api inspired by the DRF API walkthrough project which was customised to 
 
 ## Acknowledgements
 
-
+* I would like to thank my mentor dick which helped me with the project, the code institute tutors were incredibly helpful with understanding errors and why they were happening
+* I would like to thank my family and friends which helped test key features during development which assisted me with bug fixes
