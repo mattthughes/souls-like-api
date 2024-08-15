@@ -30,7 +30,8 @@ class CommentListViewTests(APITestCase):
         a post, then create a comment
         """
         my_admin = User.objects.get(username='myuser')
-        test_game = Game.objects.create(owner=my_admin, title='a title', slug='a-slug')
+        test_game = Game.objects.create(
+            owner=my_admin, title='a title', slug='a-slug')
         matt = User.objects.get(username='matt')
         test_post = Post.objects.create(
             owner=matt, title='a title',

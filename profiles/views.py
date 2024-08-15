@@ -22,10 +22,8 @@ class ProfileList(generics.ListAPIView):
     ]
     ordering_fields = [
         'posts_count',
-        
+
     ]
-
-
 
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
@@ -38,3 +36,4 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
 
     )
     serializer_class = ProfileSerializer
+    
