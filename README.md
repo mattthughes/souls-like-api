@@ -28,6 +28,8 @@ Souls like gallery is a content sharing application that is built using the djan
 - [Credits](#credits)
 - [Acknowledgements](#acknowledgements)
 
+View Frontend readme [here](https://github.com/mattthughes/souls-like-gallery-app)
+
 ## Database Relationship models
 
 ### Database Entity relationship diagram
