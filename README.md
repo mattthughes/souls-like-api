@@ -105,6 +105,134 @@ I tested this project extensively, making sure everything worked as intended thi
 
 ### Heroku Deployment
 
+1. Install the requirement.txt file dependencies by typing pip -r requirements.txt
+2. Add JWT tokens to the project by first installing django all auth making sure to install the correct version of all auth, add the following to the file settings.py in the  installed apps section:
+```
+'rest_framework.authtoken',
+'dj_rest_auth',
+'django.contrib.sites',
+'allauth',
+'allauth.account',
+'allauth.socialaccount',
+'dj_rest_auth.registration',
+```
+
+Next add the following lines of code to the settings.py file
+```
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [(
+        'rest_framework.authentication.SessionAuthentication'
+        if 'DEV' in os.environ
+        else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
+    )]
+}
+
+REST_USE_JWT = True
+JWT_AUTH_SECURE = True
+JWT_AUTH_COOKIE = 'my-app-auth'
+JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_SAMESITE = 'None'
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'souls_like_api.serializers.CurrentUserSerializer'
+}
+```
+
+After this migrate the changes to the database
+
+3. Once you have added the JWT tokens add the default pagination class and make sure your rest framework section looks like this
+```
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [(
+        'rest_framework.authentication.SessionAuthentication'
+        if 'DEV' in os.environ
+        else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
+    )],
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DATETIME_FORMAT': '%d %b %Y',
+}
+if 'DEV' not in os.environ:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
+        'rest_framework.renderers.JSONRenderer',
+    ]
+```
+
+4. Add an app route that greets the user when opening the api
+5. Add a project build database by either creating an database using elephant SQL or using an existing empty database
+6. Log in to Heroku or set up an account.
+7. From the dashboard click create new app.
+8. Name your app this will need to be unique as you cannot use an existing application name.
+9. This will create the app within Heroku and will bring you to the deploy tab. From this navigate to the resources tab.
+10. Add the database to the app, to do this navigate to the add ons section and search for Heroku Postgres select the package that appears and add Heroku Postgres as the database.
+11. Navigate to the settings tab, within the config vars section copy this DATABASE_URL to the clipboard to use this later in your django app.
+12. Within the djanjo app repository create a new file called env.py to do this type into the terminal touch env.py. Within the file create an environment variable for the DATABASE_URL pasting the address from your clipboard you copied from heroku. along with the following piece of code os.environ['DEV'] = '1'
+13. Add a SECRET_KEY to the app using another another environment variable you can obtain a secret key from a random secret key generator paste this secret key into the environment variable your secret key variable should be written like this os.environ.setdefault(
+    "SECRET_KEY", "Yoursecret key")
+14. Add the secret key just created to your heroku config vars by adding SECRET_KEY and the key you created as the value.
+15. In the settings.py file  import Path from pathlib, import os and import dj_database_url
+16. insert this line if os.path.isfile("env.py"): import env into the settings.py file 
+17. Remove the default secret key that django has in the settings.py file and type SECRET_KEY = os.environ.get('SECRET_KEY')
+18. Next replace the default database by either commenting out the code or deleting it you can use the default database for any automated testing later, replace this database with 
+```
+DATABASES = {
+    'default': ({
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    } if 'DEV' in os.environ else dj_database_url.parse(
+        os.environ.get('DATABASE_URL')
+    ))
+    
+}
+```
+this will use the development database on the developer side, and on heroku the project build database will be used.
+19. In the terminal migrate over any changes you have just made by typing python3 manage.py migrate you may need to make the migrations first if you do type python3 manage.py makemigrations and then the migrate command after.
+20. Navigate to cloudinary in the browser and create an account or login if you already have an account.
+21. From the dashboard copy the CLOUDINARY_URL and navigate over to the django app and create a new environment variable by typing os.environ[Cloudinary_URL] paste the url that you just copied after the assignment operator.
+22. In Heroku add the CLOUDINARY_URL and the value you copied to the config vars.
+23. Add the KEY - DISABLE_COLLECTSTATIC with the Value 1 to the config vars.
+24. Navigate back to the settings.py file and add the cloudinary libaries to the installed apps the order should be cloudinary_storage then django.contrib.staticfiles and then cloudinary below this make sure you follow this order.
+25. Add this section of code to the ALLOWED_HOSTS list. It should read as ALLOWED_HOSTS = [
+   os.environ.get('ALLOWED_HOST'),
+   'localhost',
+]
+26. Create a new file in the top level directory and call it Procfile
+27. In the Procfile add the following code web: guincorn PROJECT_NAME.wsgi
+28. Create a superuser to use on the new database migrate the changes to the new database
+29. Make sure to add, commit and push changes to GitHub.
+30. Add the following cors settings to the settings.py file
+```
+INSTALLED_APPS = [
+    ...
+    'dj_rest_auth.registration',
+    'corsheaders',
+    ...
+ ]
+
+ SITE_ID = 1
+ MIDDLEWARE = [
+     'corsheaders.middleware.CorsMiddleware',
+     ...
+ ]
+
+ if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    dev_origin = os.environ.get('CLIENT_ORIGIN_DEV')
+    CORS_ALLOWED_ORIGINS.append(dev_origin)
+
+CORS_ALLOW_CREDENTIALS = True
+```
+31. Navigate back to Heroku and click on the deploy tab scroll down to the  deployment method, select GitHub and confirm you would like to connect to GitHub.
+32. Enter your GitHub repository Id and then select connect.
+33. If you would like every change you make on your IDE to appear on the deployed app click Enable Automatic Deploy. Otherwise you can deploy this manually each time to have more control of deploys.
+34. For the last step click Deploy Branch in the manual deploy section this will start to the build the app slowly once this has been built a deployed link will appear allowing to to view your deployed app.
+
+
 ### Running Application locally
 
 Navigated to the GitHub Repository:
