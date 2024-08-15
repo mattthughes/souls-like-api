@@ -187,6 +187,7 @@ DATABASES = {
 }
 ```
 this will use the development database on the developer side, and on heroku the project build database will be used.
+
 19. In the terminal migrate over any changes you have just made by typing python3 manage.py migrate you may need to make the migrations first if you do type python3 manage.py makemigrations and then the migrate command after.
 20. Navigate to cloudinary in the browser and create an account or login if you already have an account.
 21. From the dashboard copy the CLOUDINARY_URL and navigate over to the django app and create a new environment variable by typing os.environ[Cloudinary_URL] paste the url that you just copied after the assignment operator.
