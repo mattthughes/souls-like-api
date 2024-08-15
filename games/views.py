@@ -38,7 +38,6 @@ class GameDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Game.objects.annotate(
         posts_count=Count('owner__post', distinct=True)
     )
-    
 
 
 class CreateGame(generics.CreateAPIView):

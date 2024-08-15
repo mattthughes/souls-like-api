@@ -5,7 +5,6 @@ from .models import Game
 class GameSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
-    
 
     def get_is_owner(self, obj):
         request = self.context['request']
@@ -16,4 +15,3 @@ class GameSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'title', 'slug', 'image', 'description'
         ]
-        
